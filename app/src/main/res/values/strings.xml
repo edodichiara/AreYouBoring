@@ -1,0 +1,15 @@
+<resources>
+    //App Name
+    <string name="app_name">Are u boring?</string>
+
+    //TextView
+    <string name="title_1">ARE YOU</string>
+    <string name="title_2">BORING?</string>
+    <string name="title_3">Let\'s do something! \nClick the button below.</string>
+    <string name="tv_question_price">How much will it cost you?</string>
+    <string name="tv_price">%s $</string>
+    <string name="tv_question_partecipants">How many participants will there be?</string>
+
+    //Button
+    <string name="btn_select_activity">Select an activity</string>
+</resources>

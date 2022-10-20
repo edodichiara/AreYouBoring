@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    //Height
+    <dimen name="margin_top">16dp</dimen>
+    <dimen name="title_padding">8dp</dimen>
+
+    //Text size
+    <dimen name="normal_text">20sp</dimen>
+    <dimen name="title">25sp</dimen>
+</resources>
