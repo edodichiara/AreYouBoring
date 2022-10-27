@@ -1,5 +1,6 @@
 package com.example.networkexercise2
 
+
 data class RepoData(
     val accessibility: Double,
     val activity: String,
