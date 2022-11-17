@@ -6,16 +6,8 @@ import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
-class MainViewModel : ViewModel() {
-    private val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl("https://www.boredapi.com/")
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-
-    private val apiService: ApiService = retrofit.create(ApiService::class.java)
+class MainViewModel(private val apiService: ApiService) : ViewModel() {
 
     private var _repos = MutableLiveData<RepoData>()
     val repos: LiveData<RepoData>
@@ -34,7 +26,5 @@ class MainViewModel : ViewModel() {
                 _error.value = e.localizedMessage
             }
         }
-
-
     }
 }
