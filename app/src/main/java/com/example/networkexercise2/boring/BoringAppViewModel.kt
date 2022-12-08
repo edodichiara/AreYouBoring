@@ -1,4 +1,4 @@
-package com.example.networkexercise2
+package com.example.networkexercise2.boring
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -7,7 +7,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class MainViewModel(private val apiService: ApiService) : ViewModel() {
+class BoringAppViewModel(private val apiService: ApiService) : ViewModel() {
 
     private var _repos = MutableLiveData<RepoData>()
     val repos: LiveData<RepoData>

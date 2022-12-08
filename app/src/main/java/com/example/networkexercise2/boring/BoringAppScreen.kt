@@ -1,15 +1,17 @@
-package com.example.networkexercise2
+package com.example.networkexercise2.boring
 
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.example.networkexercise2.MyApplication
+import com.example.networkexercise2.R
 import com.example.networkexercise2.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
 
 
-class MainActivity : AppCompatActivity() {
+class BoringAppScreen : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var viewModel: MainViewModel
+    private lateinit var viewModel: BoringAppViewModel
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         //view model instance
         viewModel =
-            (application as MyApplication).mainViewModelFactory.create(MainViewModel::class.java)
+            (application as MyApplication).mainViewModelFactory.create(BoringAppViewModel::class.java)
         observeRepos()
         binding.btnSelectActivity.setOnClickListener {
             viewModel.retrieveRepos()
