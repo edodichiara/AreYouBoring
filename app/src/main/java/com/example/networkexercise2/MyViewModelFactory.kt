@@ -2,7 +2,7 @@ package com.example.networkexercise2
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.networkexercise2.boring.usecase.model.BoringAppViewModel
+import com.example.networkexercise2.boring.usecase.BoringAppViewModel
 import com.example.networkexercise2.boring.network.ApiProvider
 
 class MyViewModelFactory(private val apiProvider: ApiProvider): ViewModelProvider.Factory {

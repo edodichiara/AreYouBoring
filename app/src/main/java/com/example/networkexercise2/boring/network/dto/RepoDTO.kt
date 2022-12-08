@@ -1,5 +1,7 @@
 package com.example.networkexercise2.boring.network.dto
 
+import com.example.networkexercise2.boring.usecase.model.Repository
+
 
 data class RepoDTO(
     val accessibility: Double,
@@ -10,3 +12,5 @@ data class RepoDTO(
     val price: Double,
     val type: String
 )
+
+fun RepoDTO.toRepository() = Repository(this.activity, this.price, this.participants)
