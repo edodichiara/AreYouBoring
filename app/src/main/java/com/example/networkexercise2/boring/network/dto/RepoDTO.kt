@@ -1,7 +1,7 @@
 package com.example.networkexercise2.boring.network.dto
 
 
-data class RepoData(
+data class RepoDTO(
     val accessibility: Double,
     val activity: String,
     val key: String,

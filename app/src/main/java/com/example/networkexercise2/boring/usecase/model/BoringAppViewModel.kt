@@ -1,19 +1,18 @@
-package com.example.networkexercise2.boring
+package com.example.networkexercise2.boring.usecase.model
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.networkexercise2.boring.network.ApiProvider
-import com.example.networkexercise2.boring.network.ApiService
-import com.example.networkexercise2.boring.network.dto.RepoData
+import com.example.networkexercise2.boring.network.dto.RepoDTO
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class BoringAppViewModel(private val apiProvider: ApiProvider) : ViewModel() {
 
-    private var _repos = MutableLiveData<RepoData>()
-    val repos: LiveData<RepoData>
+    private var _repos = MutableLiveData<RepoDTO>()
+    val repos: LiveData<RepoDTO>
         get() = _repos
 
     private var _error = MutableLiveData<String>()

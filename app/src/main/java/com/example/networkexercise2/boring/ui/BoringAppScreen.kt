@@ -5,8 +5,8 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.networkexercise2.MyApplication
 import com.example.networkexercise2.R
-import com.example.networkexercise2.boring.BoringAppViewModel
-import com.example.networkexercise2.boring.network.dto.RepoData
+import com.example.networkexercise2.boring.usecase.model.BoringAppViewModel
+import com.example.networkexercise2.boring.network.dto.RepoDTO
 import com.example.networkexercise2.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
 
@@ -49,7 +49,7 @@ class BoringAppScreen : AppCompatActivity() {
         }
     }
 
-    private fun showRepos(repos: RepoData) {
+    private fun showRepos(repos: RepoDTO) {
         binding.tvActivity.text = repos.activity
         binding.tvPrice.text = getString(R.string.tv_price, repos.price.toString())
         binding.tvPartecipants.text = repos.participants.toString()
