@@ -4,11 +4,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.networkexercise2.boring.network.ApiService
 import com.example.networkexercise2.boring.BoringAppViewModel
+import com.example.networkexercise2.boring.network.ApiProvider
 
-class MyViewModelFactory(private val apiService: ApiService): ViewModelProvider.Factory {
+class MyViewModelFactory(private val apiProvider: ApiProvider): ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if(modelClass.isAssignableFrom(BoringAppViewModel::class.java)){
-            return BoringAppViewModel(apiService) as T
+            return BoringAppViewModel(apiProvider) as T
         } else {
             throw IllegalArgumentException("Unknown ViewModel Class")
         }

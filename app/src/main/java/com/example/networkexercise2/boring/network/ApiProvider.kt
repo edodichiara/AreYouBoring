@@ -11,5 +11,5 @@ class ApiProvider {
 
     private val apiService: ApiService = retrofit.create(ApiService::class.java)
 
-    fun provide(): ApiService = apiService
+    suspend fun getRepos() = apiService.listRepos()
 }

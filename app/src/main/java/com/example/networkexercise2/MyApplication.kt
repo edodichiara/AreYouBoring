@@ -7,7 +7,7 @@ import com.example.networkexercise2.boring.network.ApiProvider
 class MyApplication: Application() {
 
     private val apiProvider = ApiProvider()
-    val myViewModelFactory = MyViewModelFactory(apiProvider.provide())
+    val myViewModelFactory = MyViewModelFactory(apiProvider)
 
     override fun onCreate() {
         super.onCreate()
