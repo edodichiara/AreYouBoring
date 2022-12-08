@@ -1,4 +1,4 @@
-package com.example.networkexercise2.boring
+package com.example.networkexercise2.boring.network.dto
 
 
 data class RepoData(

@@ -3,6 +3,8 @@ package com.example.networkexercise2.boring
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.networkexercise2.boring.network.ApiService
+import com.example.networkexercise2.boring.network.dto.RepoData
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

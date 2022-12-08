@@ -1,4 +1,4 @@
-package com.example.networkexercise2.boring
+package com.example.networkexercise2.boring.network
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

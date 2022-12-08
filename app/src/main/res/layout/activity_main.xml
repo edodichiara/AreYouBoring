@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/bgd_vanilla"
     android:padding="24dp"
-    tools:context=".boring.BoringAppScreen">
+    tools:context=".boring.ui.BoringAppScreen">
 
     <TextView
         android:id="@+id/title_1"
