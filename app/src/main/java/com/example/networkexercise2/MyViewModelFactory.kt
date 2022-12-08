@@ -2,8 +2,8 @@ package com.example.networkexercise2
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.networkexercise2.boring.usecase.BoringAppViewModel
 import com.example.networkexercise2.boring.network.ApiProvider
+import com.example.networkexercise2.boring.usecase.BoringAppViewModel
 
 class MyViewModelFactory(private val apiProvider: ApiProvider): ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

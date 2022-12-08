@@ -9,7 +9,10 @@
     <string name="tv_question_price">How much will it cost you?</string>
     <string name="tv_price">%s $</string>
     <string name="tv_question_partecipants">How many participants will there be?</string>
+    <string name="error">Error!</string>
 
     //Button
     <string name="btn_select_activity">Select an activity</string>
+    <string name="try_again">Try Again</string>
+    <string name="check_connection">Check your internet connection!</string>
 </resources>

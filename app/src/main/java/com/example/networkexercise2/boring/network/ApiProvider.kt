@@ -13,5 +13,6 @@ class ApiProvider {
 
     private val apiService: ApiService = retrofit.create(ApiService::class.java)
 
-    suspend fun getRepos(): Repository = apiService.listRepos().body()?.toRepository() ?: Repository("error", 0.0, 0)
+    suspend fun getRepos(): Repository =
+        apiService.listRepos().body()?.toRepository() ?: Repository("error", 0.0, 0)
 }

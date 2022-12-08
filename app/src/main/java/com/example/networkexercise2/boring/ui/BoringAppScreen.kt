@@ -1,12 +1,11 @@
 package com.example.networkexercise2.boring.ui
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.networkexercise2.MyApplication
 import com.example.networkexercise2.R
+import com.example.networkexercise2.boring.usecase.BoringAppResult
 import com.example.networkexercise2.boring.usecase.BoringAppViewModel
-import com.example.networkexercise2.boring.network.dto.RepoDTO
 import com.example.networkexercise2.boring.usecase.model.Repository
 import com.example.networkexercise2.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
@@ -36,17 +35,17 @@ class BoringAppScreen : AppCompatActivity() {
 
     private fun observeRepos() {
 
-        viewModel.repos.observe(this) {
-            showRepos(it)
-        }
-
-        viewModel.error.observe(this) {
-            Log.e("MainActivity1", "error retrieving repos: $it")
-            Snackbar.make(
-                findViewById(R.id.main_view),
-                "Error retrieving repos",
-                Snackbar.LENGTH_INDEFINITE
-            ).setAction("Retry") { viewModel.retrieveRepos() }.show()
+        viewModel.result.observe(this) {
+            when (it) {
+                is BoringAppResult.Error -> {
+                    Snackbar.make(
+                        findViewById(R.id.main_view),
+                        "Error retrieving repos",
+                        Snackbar.LENGTH_INDEFINITE
+                    ).setAction("Retry") { viewModel.retrieveRepos() }.show()
+                }
+                is BoringAppResult.Success -> showRepos(it.repos)
+            }
         }
     }
 
