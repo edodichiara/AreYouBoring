@@ -1,19 +1,11 @@
 package com.example.networkexercise2
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import com.example.networkexercise2.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
 
-import retrofit2.Response
-import retrofit2.http.GET
-
-
-interface ApiService {
-    @GET("api/activity")
-    suspend fun listRepos(): Response<RepoData>
-}
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -27,7 +19,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         //view model instance
-        viewModel = (application as MyApplication).mainViewModelFactory.create(MainViewModel::class.java)
+        viewModel =
+            (application as MyApplication).mainViewModelFactory.create(MainViewModel::class.java)
         observeRepos()
         binding.btnSelectActivity.setOnClickListener {
             viewModel.retrieveRepos()
