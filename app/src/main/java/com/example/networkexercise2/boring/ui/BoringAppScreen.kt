@@ -30,6 +30,7 @@ class BoringAppScreen : AppCompatActivity() {
             viewModel.retrieveRepos()
         }
         viewModel.retrieveRepos()
+        viewModel.dialog.show(supportFragmentManager, "custom")
 
     }
 
