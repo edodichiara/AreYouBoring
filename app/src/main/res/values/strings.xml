@@ -4,7 +4,7 @@
 
     //TextView
     <string name="title_1">ARE YOU</string>
-    <string name="title_2">BORING?</string>
+    <string name="title_2">BORED?</string>
     <string name="title_3">Let\'s do something! \nClick the button below.</string>
     <string name="tv_question_price">How much will it cost you?</string>
     <string name="tv_price">%s $</string>
@@ -15,8 +15,9 @@
     <string name="btn_select_activity">Select an activity</string>
     <string name="try_again">Try Again</string>
     <string name="check_connection">Check your internet connection!</string>
-    <string name="tv_welcome">Welcome to\n Are You Boring app!</string>
+    <string name="tv_welcome">Welcome to\n Are You Bored app!</string>
     <string name="tv_enter_your_name">Please enter your name</string>
     <string name="hint_name">Name</string>
     <string name="btn_submit">Submit</string>
+    <string name="change_color">Change app color  </string>
 </resources>

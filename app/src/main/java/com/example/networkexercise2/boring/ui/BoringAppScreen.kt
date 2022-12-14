@@ -1,7 +1,11 @@
 package com.example.networkexercise2.boring.ui
 
+import android.content.Context
+import android.content.SharedPreferences
+import android.content.SharedPreferences.Editor
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import com.example.networkexercise2.MyApplication
 import com.example.networkexercise2.R
 import com.example.networkexercise2.boring.usecase.BoringAppResult
@@ -14,6 +18,8 @@ import com.google.android.material.snackbar.Snackbar
 class BoringAppScreen : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: BoringAppViewModel
+    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var editor: Editor
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,6 +27,7 @@ class BoringAppScreen : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        sharedPreferences = getSharedPreferences("ChangeTheme", Context.MODE_PRIVATE)
 
         //view model instance
         viewModel =
@@ -30,8 +37,25 @@ class BoringAppScreen : AppCompatActivity() {
             viewModel.retrieveRepos()
         }
         viewModel.retrieveRepos()
-        viewModel.dialog.show(supportFragmentManager, "custom")
 
+        val nightMode: Boolean = sharedPreferences.getBoolean("night", false)
+        if (nightMode) {
+            binding.switchTheme.isChecked = true
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }
+
+        binding.switchTheme.setOnClickListener{
+            if (nightMode) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                editor = sharedPreferences.edit()
+                editor.putBoolean("night", false)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                editor = sharedPreferences.edit()
+                editor.putBoolean("night", true)
+            }
+            editor.apply()
+        }
     }
 
     private fun observeRepos() {

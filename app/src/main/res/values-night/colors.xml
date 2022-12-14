@@ -9,9 +9,8 @@
     <color name="white">#FFFFFFFF</color>
 
     <!--My light Color-->
-    <color name="strange_black">#283618</color>
-    <color name="bgd_vanilla">#fefae0</color>
-    <color name="brown">#bc6c25</color>
-    <color name="light_grey">#7A8089</color>
-
+    <color name="bgd_vanilla">#2B2C28</color>
+    <color name="brown">#7DE2D1</color>
+    <color name="light_grey">#339989</color>
+    <color name="strange_black">#FFFAFB</color>
 </resources>
