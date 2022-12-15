@@ -6,6 +6,7 @@ import android.content.SharedPreferences.Editor
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.lifecycle.lifecycleScope
 import com.example.networkexercise2.MyApplication
 import com.example.networkexercise2.R
 import com.example.networkexercise2.boring.usecase.BoringAppResult
@@ -13,6 +14,7 @@ import com.example.networkexercise2.boring.usecase.BoringAppViewModel
 import com.example.networkexercise2.boring.usecase.model.Repository
 import com.example.networkexercise2.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.launch
 
 
 class BoringAppScreen : AppCompatActivity() {
@@ -59,19 +61,21 @@ class BoringAppScreen : AppCompatActivity() {
     }
 
     private fun observeRepos() {
-
-        viewModel.result.observe(this) {
-            when (it) {
-                is BoringAppResult.Error -> {
-                    Snackbar.make(
-                        findViewById(R.id.main_view),
-                        "Error retrieving repos",
-                        Snackbar.LENGTH_INDEFINITE
-                    ).setAction("Retry") { viewModel.retrieveRepos() }.show()
+        lifecycleScope.launch {
+            viewModel.result.collect {
+                when (it) {
+                    is BoringAppResult.Error -> {
+                        Snackbar.make(
+                            findViewById(R.id.main_view),
+                            "Error retrieving repos",
+                            Snackbar.LENGTH_INDEFINITE
+                        ).setAction("Retry") { viewModel.retrieveRepos() }.show()
+                    }
+                    is BoringAppResult.Success -> showRepos(it.repos)
                 }
-                is BoringAppResult.Success -> showRepos(it.repos)
             }
         }
+
     }
 
     private fun showRepos(repos: Repository) {
