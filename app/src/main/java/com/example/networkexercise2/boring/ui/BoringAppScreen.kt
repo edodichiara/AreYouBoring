@@ -46,7 +46,7 @@ class BoringAppScreen : AppCompatActivity() {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         }
 
-        binding.switchTheme.setOnClickListener{
+        binding.switchTheme.setOnClickListener {
             if (nightMode) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
                 editor = sharedPreferences.edit()
